@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <script src="js/urlParams.js"></script>
+
+</head>
+
+<body>
+<center>
+    <div class="d-flex justify-content-center">
+        <div class="spinner-grow" style="width: 640px; height: 640px; margin-top: 128px" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</center>
+<script>
+    $.get(
+        "transaction_info",
+        {transaction_id: urlParams['transaction_id']},
+        function (data) {
+            parent.postMessage({kind: "close-modal", data: data}, "*")
+        }
+    );
+</script>
+</body>
+</html>
