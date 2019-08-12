@@ -25,13 +25,29 @@
     </div>
 </center>
 <script>
-    $.get(
-        "transaction_info",
-        {transaction_id: urlParams['transaction_id']},
-        function (data) {
-            parent.postMessage({kind: "close-modal", data: data}, "*")
-        }
-    );
+
+
+    function doPoll() {
+        $.get(
+            "transaction_info",
+            {transaction_id: urlParams['transaction_id']},
+            function (data) {
+                parent.postMessage({kind: "close-modal", data: data}, "*")
+            }
+        );
+
+        $.ajax({
+            url: "/transaction_info",
+            data: {transaction_id: urlParams['transaction_id']},
+            type: 'get',
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                setTimeout(doPoll, 2000);
+            },
+            success: function (data) {
+                parent.postMessage({kind: "close-modal", data: data}, "*")
+            }
+        });
+    }
 </script>
 </body>
 </html>
