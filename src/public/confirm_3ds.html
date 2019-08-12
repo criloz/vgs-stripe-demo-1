@@ -28,14 +28,6 @@
 
 
     function doPoll() {
-        $.get(
-            "transaction_info",
-            {transaction_id: urlParams['transaction_id']},
-            function (data) {
-                parent.postMessage({kind: "close-modal", data: data}, "*")
-            }
-        );
-
         $.ajax({
             url: "/transaction_info",
             data: {transaction_id: urlParams['transaction_id']},
