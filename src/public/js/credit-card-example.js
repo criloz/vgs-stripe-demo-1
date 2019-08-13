@@ -40,12 +40,16 @@ for (var i = 0; i < elements.length; i++) {
 
 document.getElementById('cc-form')
     .addEventListener('submit', function (e) {
-        let targetForm = e.target;
+        var targetForm = e.target;
         e.preventDefault();
-        $('#purchase-btn').prepend('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+        var form_error = $("#form-error");
+        form_error.text("");
+        form_error.hide();
+
+        $('#purchase-btn').prepend('<span id="purchase-loader" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
         //submit and send the amount of the transaction
         f.submit('/post', {data: {amount: urlParams['amount']}}, function (status, data) {
-            console.log(data);
+            $('#purchase-loader').remove();
             if (data && data.kind) {
                 if (data.kind === "transaction_succeeded_without_3ds") {
                     //close modal
@@ -53,9 +57,11 @@ document.getElementById('cc-form')
                 } else if (data.kind === "action_redirect") {
                     //close modal
                     window.location.replace(data.redirect_url);
+                } else if (data.kind === "error") {
+                    form_error.text(data.message);
+                    form_error.show();
                 }
             }
-
             cleanErrorMessages(targetForm);
         }, function (errors) {
             highlightErrors(targetForm, errors);

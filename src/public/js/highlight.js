@@ -10,7 +10,7 @@ var cleanErrorMessages = function (targetForm) {
 var highlightErrors = function (targetForm, errors) {
     cleanErrorMessages(targetForm);
     for (var error in errors) {
-        let errorMessage = errors[error].errorMessages[0];
+        var errorMessage = errors[error].errorMessages[0];
         $(targetForm).find('[data-name="' + error + '"]').append(errorMessage);
     }
 };
