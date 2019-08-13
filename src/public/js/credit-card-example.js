@@ -54,7 +54,7 @@ document.getElementById('cc-form')
                 if (data.kind === "transaction_succeeded_without_3ds") {
                     //close modal
                     parent.postMessage({kind: "close-modal", data: {kind: "transaction_succeeded_without_3ds"}}, "*");
-                    window.location.replace('/confirm_3ds.html?transaction_id=' + data.transaction_id);
+                    window.location.replace('/confirm_3ds.html?transaction_succeeded_without_3ds=true&&transaction_id=' + data.transaction_id);
 
                 } else if (data.kind === "action_redirect") {
                     //close modal

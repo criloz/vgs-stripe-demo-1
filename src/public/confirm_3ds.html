@@ -76,7 +76,12 @@
         });
     }
 
-    doPoll();
+    if (urlParams['transaction_succeeded_without_3ds']) {
+        $('#tx_status').text('succeeded');
+        $('#tx_message').text('credit card does not support 3D Secure authentication');
+    } else {
+        doPoll();
+    }
 </script>
 </body>
 </html>
