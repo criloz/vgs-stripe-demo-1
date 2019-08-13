@@ -53,7 +53,7 @@ def post():
     Transactions[transaction_id] = {}
 
     # create card on stripe
-    # in this stage the data is redacted and it will be revealed through the vgs proxy 
+    # in this stage the data is redacted and it will be revealed through the vgs proxy
     # that is configured in the __main__ function
     exp_month, exp_year = request.json['cardExpirationDate'].split('/')
     card = {
@@ -103,7 +103,7 @@ def post():
 
     # transaction does success and does not support 3d secure
     if not intent_response['next_action']:
-        return jsonify({'kind': 'transaction_succeeded_without_3ds'}), 200
+        return jsonify({'kind': 'transaction_succeeded_without_3ds', 'transaction_id': transaction_id}), 200
     else:
         return jsonify(
             {'kind': 'action_redirect',
