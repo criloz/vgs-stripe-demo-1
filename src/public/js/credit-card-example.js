@@ -45,6 +45,7 @@ document.getElementById('cc-form')
         $('#purchase-btn').prepend('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
         //submit and send the amount of the transaction
         f.submit('/post', {data: {amount: urlParams['amount']}}, function (status, data) {
+            console.log(data);
             if (data && data.kind) {
                 if (data.kind === "transaction_succeeded_without_3ds") {
                     //close modal
