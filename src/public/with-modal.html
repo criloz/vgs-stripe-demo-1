@@ -18,59 +18,60 @@
 </head>
 
 <body>
-<main>
-    <!-- Modal -->
-    <div id="request-card" class="modal" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <iframe id="iframe-modal-content"></iframe>
-                </div>
+<!-- Modal -->
+<div id="request-card" class="modal" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <iframe id="iframe-modal-content"></iframe>
             </div>
         </div>
     </div>
+</div>
+<main>
+    <div class="container">
+        <h1 class="mt-5 pb-3 text-center">VGS Collect.js and Stripe 3DS Flow Demo</h1>
+        <hr>
+        <section id="3ds-purchase-example" class="container py-lg-5 example-container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        Please fill in all input fields and then submit a form.
+                    </p>
+                    <br>
 
-    <section id="3ds-purchase-example" class="container py-lg-5 example-container">
-        <!--Example Capturing credit card data-->
-        <h2 class="mt-5 mb-5">3d secure purchase example</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <p>
-                    Please fill in all input fields and then submit a form.
-                </p>
-                <br>
-
-                <form id="purchase-form">
-                    <fieldset>
-                        <div id="cc-amount" class="form-group">
-                            <label for="cc-amount-field">Amount (cents USD)</label>
-                            <span class="form-control">
+                    <form id="purchase-form">
+                        <fieldset>
+                            <div id="cc-amount" class="form-group">
+                                <label for="cc-amount-field">Amount (cents USD)</label>
+                                <span class="form-control">
                                 <input id="cc-amount-field" type="number" aria-label="Number input" aria-placeholder=""
                                        aria-invalid="false" inputmode="numeric" value="100">
                             </span>
-                            <span class="error-message" data-name="card.amount"></span>
-                        </div>
-                    </fieldset>
-                    <button class="btn btn-info" data-toggle="modal" data-target="#request-card">Purchase</button>
-                </form>
-            </div>
-            <div class="col-md-6">
-                <div class="row">
+                                <span class="error-message" data-name="card.amount"></span>
+                            </div>
+                        </fieldset>
+                        <button class="btn btn-info" data-toggle="modal" data-target="#request-card">Purchase</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
                     <span class="badge badge-warning"
                           style="margin-right: 16px; display: inline-flex; align-items: center;">Status</span> <span
-                        id="tx_status">...</span>
-                </div>
-                <br>
-                <div class="row">
+                            id="tx_status">...</span>
+                    </div>
+                    <br>
+                    <div class="row">
                     <span class="badge  badge-warning"
                           style="margin-right: 16px; display: inline-flex; align-items: center;">Message</span> <span
-                        id="tx_message">...</span>
+                            id="tx_message">...</span>
+
+                    </div>
 
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </main>
 <script type="text/javascript">
     //disable form submit

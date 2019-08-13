@@ -23,7 +23,7 @@ Transactions = {}
 
 @app.route('/')
 def root():
-    return app.send_static_file('index.html')
+    return app.send_static_file('credit-card.html')
 
 
 @app.route('/transaction_info', methods=['GET'])

@@ -8,6 +8,15 @@ var field = f.field('#cc-name .form-control', {
     validations: ['required'],
 });
 
+f.field('#amount .form-control', {
+    type: 'number',
+    name: 'amount',
+    successColor: '#4F8A10',
+    errorColor: '#D8000C',
+    defaultValue: urlParams['amount'],
+});
+
+
 f.field('#cc-number .form-control', {
     type: 'card-number',
     name: 'cardNumber',
@@ -48,7 +57,7 @@ document.getElementById('cc-form')
 
         $('#purchase-btn').prepend('<span id="purchase-loader" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
         //submit and send the amount of the transaction
-        f.submit('/post', {data: {amount: urlParams['amount']}}, function (status, data) {
+        f.submit('/post', {}, function (status, data) {
             $('#purchase-loader').remove();
             if (data && data.kind) {
                 if (data.kind === "transaction_succeeded_without_3ds") {

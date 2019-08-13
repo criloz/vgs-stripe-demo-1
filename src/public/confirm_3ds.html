@@ -3,6 +3,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -13,6 +17,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
     <script src="js/urlParams.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://www.verygoodsecurity.com/theme/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
 
 </head>
 
@@ -25,27 +32,31 @@
     </div>
 </center>
 <main id="main" style="display: none">
-    <section id="3ds-purchase-example" class="container py-lg-5 example-container">
-        <!--Example Capturing credit card data-->
-        <h2 class="mt-5 mb-5">3d secure purchase example</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="row">
+    <div class="container">
+
+        <h1 class="mt-5 pb-3 text-center">VGS Collect.js and Stripe 3DS Flow Demo</h1>
+        <hr>
+        <section id="3ds-purchase-example" class="container py-lg-5 example-container">
+            <!--Example Capturing credit card data-->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
                     <span class="badge badge-warning"
                           style="margin-right: 16px; display: inline-flex; align-items: center;">Status</span> <span
-                        id="tx_status">...</span>
-                </div>
-                <br>
-                <div class="row">
+                            id="tx_status">...</span>
+                    </div>
+                    <br>
+                    <div class="row">
                     <span class="badge  badge-warning"
                           style="margin-right: 16px; display: inline-flex; align-items: center;">Message</span> <span
-                        id="tx_message">...</span>
+                            id="tx_message">...</span>
+
+                    </div>
 
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </main>
 <script>
 
