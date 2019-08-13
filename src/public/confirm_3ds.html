@@ -77,6 +77,8 @@
     }
 
     if (urlParams['transaction_succeeded_without_3ds']) {
+        $("#spinner").hide();
+        $("#main").show();
         $('#tx_status').text('succeeded');
         $('#tx_message').text('credit card does not support 3D Secure authentication');
     } else {
