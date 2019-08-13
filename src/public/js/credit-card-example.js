@@ -13,7 +13,7 @@ f.field('#amount .form-control', {
     name: 'amount',
     successColor: '#4F8A10',
     errorColor: '#D8000C',
-    defaultValue: urlParams['amount'],
+    defaultValue: urlParams['amount'] || 0,
 });
 
 
