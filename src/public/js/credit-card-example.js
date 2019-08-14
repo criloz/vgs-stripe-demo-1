@@ -56,9 +56,11 @@ document.getElementById('cc-form')
         form_error.hide();
 
         $('#purchase-btn').prepend('<span id="purchase-loader" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+        $('#purchase-btn').props("disabled", true);
         //submit and send the amount of the transaction
         f.submit('/post', {}, function (status, data) {
             $('#purchase-loader').remove();
+            $('#purchase-btn').props("disabled", false);
             if (data && data.kind) {
                 if (data.kind === "transaction_succeeded_without_3ds") {
                     //close modal
