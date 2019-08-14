@@ -1,4 +1,4 @@
-var f = VGSCollect.create('tntvisauu0i', function (state) {
+var f = VGSCollect.create('{{VAULT_ID}}', function (state) {
 });
 
 var field = f.field('#cc-name .form-control', {

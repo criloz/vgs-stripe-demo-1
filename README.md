@@ -23,6 +23,8 @@ STRIPE_KEY=
 VGS_PROXY=
 VGS_PROXY_CERTIFICATE_B64=
 PUBLIC_URL=
+VGS_COLLECT_LIBRARY_URL=
+VAULT_ID=
 ```
 
 where 
@@ -31,6 +33,8 @@ where
 * `VGS_PROXY`: is the full url with credential of the vgs proxy returned by the dashboard 
 * `VGS_PROXY_CERTIFICATE_B64`: the proxy certificate encode in a  base64 long string
 * `PUBLIC_URL`: the public url of the server without `/` at the end, the same url used in the inbound rule
+* `VGS_COLLECT_LIBRARY_URL`: vgs dashboard>VGS Collect
+* `VAULT_ID`: vgs dashboard>settings>Identifier
 
 
 after the `.env` file is create run the app with `docker-compose up -d stripe-demo`
@@ -41,4 +45,4 @@ you can force the docker container to rebuild it self with  docker-compose up -d
 
 # on heroku
 
-https://vgs-stripe-3ds-demo.herokuapp.com/
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)

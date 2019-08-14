@@ -7,7 +7,7 @@ import tempfile
 import stripe
 import ulid
 from dotenv import load_dotenv
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from stripe.error import StripeError
 
@@ -16,15 +16,20 @@ logging.basicConfig(level=logging.DEBUG)
 load_dotenv()
 app = Flask(__name__,
             static_url_path='',
+            template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), "public"),
             static_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), "public"))
 CORS(app)
 Transactions = {}
 
 
-@app.route('/')
-def root():
-    return app.send_static_file('credit-card.html')
+@app.route('/', methods=['GET'])
+@app.route('/credit-card.html', methods=['GET'])
+def credit_card():
+    return render_template('credit-card.html', VGS_COLLECT_LIBRARY_URL=os.getenv('VGS_COLLECT_LIBRARY_URL'));
 
+@app.route('/js/credit-card-example.js', methods=['GET'])
+def credit_card_form():
+    return render_template('js/credit-card-example.js', VAULT_ID=os.getenv('VAULT_ID'));
 
 @app.route('/transaction_info', methods=['GET'])
 def get():
@@ -118,6 +123,10 @@ if not os.getenv('PUBLIC_URL'):
     raise Exception('PUBLIC_URL is missing')
 if not os.getenv('VGS_PROXY_CERTIFICATE_B64'):
     raise Exception('VGS_PROXY_CERTIFICATE_B64 vgs proxy certificate on base64 string is missing')
+if not os.getenv('VGS_COLLECT_LIBRARY_URL'):
+    raise Exception('VGS_COLLECT_LIBRARY_URL is missing')
+if not os.getenv('VAULT_ID'):
+    raise Exception('VAULT_ID is missing')
 
 fd, cert_path = tempfile.mkstemp()
 
