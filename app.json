@@ -16,7 +16,7 @@
     },
     "VGS_PROXY_CERTIFICATE_B64": {
       "description": "vgs proxy certificate encode in a  base64 long string",
-      "required": true
+      "required": false
     },
     "PUBLIC_URL": {
       "description": "the public url of the server without `/` at the end, https://{app-name}.herokuapp.com",
