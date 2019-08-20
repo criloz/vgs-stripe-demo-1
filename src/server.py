@@ -27,6 +27,16 @@ Transactions = {}
 def credit_card():
     return render_template('credit-card.html', VGS_COLLECT_LIBRARY_URL=os.getenv('VGS_COLLECT_LIBRARY_URL'));
 
+@app.route('/payment-request-api.html', methods=['GET'])
+def payment_request_api():
+    return render_template('payment-request-api.html', VGS_COLLECT_LIBRARY_URL=os.getenv('VGS_COLLECT_LIBRARY_URL'));
+
+
+@app.route('/js/payment-request-api.js', methods=['GET'])
+def payment_request_api_script():
+    return render_template('js/payment-request-api.js', VAULT_ID=os.getenv('VAULT_ID'));
+
+
 @app.route('/js/credit-card-example.js', methods=['GET'])
 def credit_card_form():
     return render_template('js/credit-card-example.js', VAULT_ID=os.getenv('VAULT_ID'));
