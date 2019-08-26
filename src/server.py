@@ -27,7 +27,7 @@ Transactions = {}
 def credit_card():
     return render_template('credit-card.html', VGS_COLLECT_LIBRARY_URL=os.getenv('VGS_COLLECT_LIBRARY_URL'));
 
-@app.route('/payment-request-api.html', methods=['GET'])
+@app.route('/pra', methods=['GET'])
 def payment_request_api():
     return render_template('payment-request-api.html', VGS_COLLECT_LIBRARY_URL=os.getenv('VGS_COLLECT_LIBRARY_URL'));
 
