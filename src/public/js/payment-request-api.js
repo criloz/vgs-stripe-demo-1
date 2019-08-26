@@ -72,7 +72,7 @@ document.getElementById('cc-form')
         $('#purchase-btn').prop('disabled', true);
 
         //submit and send the amount of the transaction
-        f.submit('/post', {}, function (status, data) {
+        f.submit('', {}, function (status, data) {
             $('#purchase-loader').remove();
             $('#purchase-btn').prop('disabled', false);
             if (data && data.kind) {
