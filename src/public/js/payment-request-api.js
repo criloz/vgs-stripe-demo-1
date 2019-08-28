@@ -1,5 +1,7 @@
-var f = VGSCollect.create('{{VAULT_ID}}', function (state) {
+var f = VGSCollect.create('development', function (state) {
 });
+
+f.getUrl = () => 'https://{{VAULT_ID}}.sandbox.verygoodproxy.com/post';
 
 f.paymentRequest('#cc-form', {
     currency: 'USD',
