@@ -36,7 +36,6 @@ def payment_request_api():
 def payment_request_api_script():
     return render_template('js/payment-request-api.js', VAULT_ID=os.getenv('VAULT_ID'));
 
-
 @app.route('/js/credit-card-example.js', methods=['GET'])
 def credit_card_form():
     return render_template('js/credit-card-example.js', VAULT_ID=os.getenv('VAULT_ID'));
